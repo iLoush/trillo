@@ -11,6 +11,12 @@
    align-items: center;
    justify-content: center;
 
+   @media only screen and (max-width: $bp-smallest) {
+      order: 1;
+      flex: 0 0 100%;
+      background-color: var(--color-grey-light-2);
+   }
+
    &__input {
       font-family: inherit;
       font-size: inherit;
@@ -116,11 +122,24 @@
    list-style: none;
    margin-top: 3.5rem;
 
+   @media only screen and (max-width: $bp-medium) {
+      display: flex;
+      margin: 0;
+   }
+
    &__item {
       position: relative;
 
       &:not(:last-child) {
          margin-bottom: 0.5rem;
+
+         @media only screen and (max-width: $bp-medium) {
+            margin-bottom: 0;
+         }
+      }
+
+      @media only screen and (max-width: $bp-medium) {
+         flex: 1;
       }
    }
 
@@ -148,7 +167,6 @@
 
    &__item:active:before {
       background-color: var(--color-primary-light);
-
    }
 
    &__link:visited,
@@ -162,6 +180,16 @@
       align-items: center;
       position: relative;
       z-index: 10;
+
+      @media only screen and (max-width: $bp-medium) {
+         justify-content: center;
+         padding: 2rem;
+      }
+
+      @media only screen and (max-width: $bp-small) {
+         flex-direction: column;
+         padding: 1.5rem 0.5rem;
+      }
    }
 
    &__icon {
@@ -169,6 +197,13 @@
       height: 1.75rem;
       margin-right: 2rem;
       fill: currentColor;
+
+      @media only screen and (max-width: $bp-small) {
+         margin: 0;
+         width: 1.5rem;
+         height: 1.5rem;
+         margin-bottom: 0.7rem;
+      }
    }
 }
 
@@ -178,6 +213,10 @@
    text-align: center;
    padding: 2rem;
    color: var(--color-grey-light-4);
+
+   @media only screen and (max-width: $bp-medium) {
+      display: none;
+   }
 }
 
 // gallery
@@ -203,6 +242,11 @@
       font-size: 2.25rem;
       letter-spacing: 1px;
       padding: 1.5rem 3rem;
+
+      @media only screen and (max-width: $bp-small) {
+         font-size: 1.8rem;
+         padding: 1.25rem 2rem;
+      }
    }
 
    &__stars {
@@ -238,15 +282,27 @@
       align-items: center;
       justify-content: center;
 
+      @media only screen and (max-width: $bp-small) {
+         padding: 0 1.5rem;
+      }
+
       &-awerage {
          font-size: 2.5rem;
          font-weight: 300;
          margin-bottom: -3px;
+
+         @media only screen and (max-width: $bp-small) {
+            font-size: 1.8rem;
+         }
       }
 
       &-count {
          font-size: 0.8rem;
          text-transform: uppercase;
+
+         @media only screen and (max-width: $bp-small) {
+            font-size: 0.5rem;
+         }
       }
    }
 }
@@ -327,13 +383,17 @@
       margin-right: 0.7rem;
 
       // older browsers
-      // background-image: url(../img/chevron-thin-right.svg);
-      // background-size: cover;
-      background-color: var(--color-primary);
-      -webkit-mask-image: url(../img/chevron-thin-right.svg);
-      mask-image: url(../img/chevron-thin-right.svg);
-      -webkit-mask-size: cover;
-      mask-size: cover;
+      background-image: url(../img/chevron-thin-right.svg);
+      background-size: cover;
+
+      @supports (-webkit-mask-image: url()) or (mask-image: ()) {
+         background-color: var(--color-primary);
+         -webkit-mask-image: url(../img/chevron-thin-right.svg);
+         mask-image: url(../img/chevron-thin-right.svg);
+         -webkit-mask-size: cover;
+         mask-size: cover;
+         background-image: none;
+      }
    }
 }
 
@@ -348,6 +408,10 @@
       margin-right: auto;
    }
 
+   &__friends {
+      display: flex;
+   }
+
    &__photo {
       box-sizing: content-box;
       height: 4rem;
@@ -356,7 +420,7 @@
       border: 3px solid #fff;
 
       &:not(:last-child) {
-         margin-right: -1.5rem;
+         margin-right: -2rem;
       }
    }
 }
@@ -369,6 +433,11 @@
    margin-bottom: 3.5rem;
    position: relative;
    overflow: hidden;
+
+   @media only screen and (max-width: $bp-medium) {
+      padding: 2rem;
+      margin-bottom: 3rem;
+   }
 
    &:before {
       content: "\201C";
@@ -427,6 +496,10 @@
 .cta {
    padding: 3.5rem 0;
    text-align: center;
+
+   @media only screen and (max-width: $bp-medium) {
+      padding: 2.5rem 0;
+   }
 
    &__book-now {
       font-size: 2rem;
